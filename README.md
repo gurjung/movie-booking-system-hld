@@ -6,15 +6,27 @@ A scalable, fault-tolerant distributed system architecture for a high-concurrenc
 
 ## Architecture Documents
 
-The system architecture and technical specifications are organized into the following design documents:
+The system architecture and technical specifications are organized into two modular directories:
+
+### Advanced Concurrency & Scaling (`scaling-and-concurrency/`)
 
 | Document | Formats | Overview |
 | :--- | :---: | :--- |
-| **Seat Locking & Concurrency** | [PDF](Seat_Locking_Design.pdf) · [MD](Seat_Locking_Design.md) | Distributed seat locking using Redis `SETNX`, 120s TTL auto-release, sequence diagrams, and idempotency guarantees. |
-| **Caching Strategy** | [PDF](Caching_Strategy.pdf) · [MD](Caching_Strategy.md) | Cache-Aside pattern, city-partitioned Redis cluster topology, short 10s TTL for live seat layouts, and stale data mitigation. |
-| **Asynchronous Processing** | [PDF](Async_Workflow.pdf) · [MD](Async_Workflow.md) | Kafka event bus (`booking_events`), consumer group decoupling, exponential retries, Dead-Letter Queues (DLQ), and deduplication. |
-| **Scaling & Fault Tolerance** | [PDF](Scaling_and_Fault_Tolerance.pdf) · [MD](Scaling_and_Fault_Tolerance.md) | Horizontal app scaling behind ALB, PostgreSQL city-based sharding, circuit breaker failover, and quorum write replication. |
-| **Monitoring & SLOs** | [PDF](Monitoring_and_SLOs.pdf) · [MD](Monitoring_and_SLOs.md) | Core observability metrics, Prometheus & Grafana stack, and service level objectives (p95 booking latency < 2.0s). |
+| **Seat Locking & Concurrency** | [PDF](scaling-and-concurrency/Seat_Locking_Design.pdf) · [MD](scaling-and-concurrency/Seat_Locking_Design.md) | Distributed seat locking using Redis `SETNX`, 120s TTL auto-release, sequence diagrams, and idempotency guarantees. |
+| **Caching Strategy** | [PDF](scaling-and-concurrency/Caching_Strategy.pdf) · [MD](scaling-and-concurrency/Caching_Strategy.md) | Cache-Aside pattern, city-partitioned Redis cluster topology, short 10s TTL for live seat layouts, and stale data mitigation. |
+| **Asynchronous Processing** | [PDF](scaling-and-concurrency/Async_Workflow.pdf) · [MD](scaling-and-concurrency/Async_Workflow.md) | Kafka event bus (`booking_events`), consumer group decoupling, exponential retries, Dead-Letter Queues (DLQ), and deduplication. |
+| **Scaling & Fault Tolerance** | [PDF](scaling-and-concurrency/Scaling_and_Fault_Tolerance.pdf) · [MD](scaling-and-concurrency/Scaling_and_Fault_Tolerance.md) | Horizontal app scaling behind ALB, PostgreSQL city-based sharding, circuit breaker failover, and quorum write replication. |
+| **Monitoring & SLOs** | [PDF](scaling-and-concurrency/Monitoring_and_SLOs.pdf) · [MD](scaling-and-concurrency/Monitoring_and_SLOs.md) | Core observability metrics, Prometheus & Grafana stack, and service level objectives (p95 booking latency < 2.0s). |
+
+### Core System Specifications (`architecture-specs/`)
+
+| Document | Format | Overview |
+| :--- | :---: | :--- |
+| **Architecture Diagram** | [PDF](architecture-specs/Architecture_Diagram.pdf) | End-to-end distributed system architecture, component boundaries, and network topology. |
+| **Component Descriptions** | [PDF](architecture-specs/Component_Descriptions.pdf) | Granular responsibilities, communication protocols, and scaling mechanisms for each microservice. |
+| **API Specifications** | [PDF](architecture-specs/API_Specifications.pdf) | Production REST/gRPC API contracts, payload schemas, query parameters, and error status codes. |
+| **CAP Theorem Trade-Offs** | [PDF](architecture-specs/CAP_Tradeoffs.pdf) | Analysis of AP (Availability) vs CP (Consistency) trade-offs across read and write subsystems. |
+| **Scaling and Monitoring** | [PDF](architecture-specs/Scaling_and_Monitoring.pdf) | Flash-crowd mitigation, virtual queueing, database sharding, and end-to-end observability. |
 
 ---
 
