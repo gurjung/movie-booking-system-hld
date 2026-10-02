@@ -6,6 +6,14 @@ A scalable, fault-tolerant distributed system architecture for a high-concurrenc
 
 ## Architecture Documents
 
+### Complete System Design (`complete-system-design/`)
+- **[Requirements & Assumptions Matrix](complete-system-design/Requirements_Table.pdf)** — Functional and non-functional requirements matrix, target SLAs, and operational assumptions.
+- **[System Architecture](complete-system-design/Architecture_Diagram.pdf)** — Distributed service topology, synchronous vs. asynchronous paths, and component descriptions.
+- **[Data Model & Storage](complete-system-design/ER_Diagram.pdf)** — Entity-relationship schema, composite indexes, and City + Month sharding strategy.
+- **[Component Deep Dives](complete-system-design/Component_DeepDives.pdf)** — BookingService seat hold flow, PaymentService 4-stage lifecycle, and NotificationService workers.
+- **[Scaling & Trade-Offs](complete-system-design/Scaling_and_TradeOffs.pdf)** — Multi-tier flash traffic defense, hybrid CAP theorem model, and schema trade-offs.
+- **[Monitoring & SLOs](complete-system-design/Monitoring_and_SLOs.pdf)** — Production telemetry stack, core KPIs, availability/booking reliability SLOs, and escalation matrix.
+
 ### Real-Time Notifications (`realtime-notifications/`)
 - **[Pub/Sub Architecture](realtime-notifications/PubSub_Architecture.pdf)** — Kafka event bus topology, producer/consumer mapping, and standard event schemas.
 - **[NotificationService Design](realtime-notifications/NotificationService_Design.pdf)** — Multi-channel workers (Email, SMS, Push, WebSockets) with idempotent delivery.
